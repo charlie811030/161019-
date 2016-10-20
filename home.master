@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+
+</script>
+
+
+<head>
+    <meta charset="UTF-8" />
+    <title>校園名人堂</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+<body>
+    <div id="header">
+        <ul>
+            <li class="current"><a href="index.html"><span>校園名人堂</span></a></li>
+            <li><a href="services.html"><span>Services</span></a></li>
+
+
+
+            <li><a href="about.html"><span>關於我</span></a></li>
+
+            <li><a href="contact.html"><span>Contact Us</span></a></li>
+            <a href="我的最愛.ashx">我的最愛</a>
+        </ul>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+            </asp:ContentPlaceHolder>
+        </div>
+<%--      <img src="images/yoga-girl.gif" alt="" />--%>
+            </div>
+            	
+       
+ </body>
+
+          
+
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
