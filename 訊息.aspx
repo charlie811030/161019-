@@ -7,19 +7,67 @@
         Label labl_id = (Label)FormView1.FindControl("編號Label");
         string id = labl_id.Text;
 
-        HttpCookie cookie = new HttpCookie("我的最愛");
+        HttpCookie cookie = new HttpCookie("MyLike");
         cookie.Value = id;
         cookie.Expires = DateTime.Now.AddDays(7); //我的最愛保留七天
         Response.Cookies.Add(cookie);
 
 
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+
+    {
+        //////取得產品採購資訊(編號,價格,數量,小計)
+        //caritem item = new caritem();
+        ////Label lbl = (Label)FormView1.FindControl("title_idLabel");
+        ////item.Title_Id = lbl.Text;
+        ////lbl = (Label)FormView1.FindControl("priceLabel");
+        ////item.price = Convert.ToDecimal(lbl.Text);
+        ////item.Quanty = 1;
+
+        ////第二次PostBack時FormView不會讀取資料(因為第一次已讀取)-->FormView1.DataItem是null
+        ////明確呼叫DataBind,強迫FormView再讀取資料-->FormView1.DataItem才不會null
+        //FormView1.DataBind();
+        //object product = FormView1.DataItem;
+        //item.Title_Id = DataBinder.Eval(product, "title_id").ToString();
+        //item.price = (decimal)DataBinder.Eval(product, "price");
+        //item.Quanty = 2;
+        //Response.Write(item.SubTotal);
+
+        ////取得現有購物車內容(session變數紀錄)
+        //List<CartItem> Cart;  // 用list比較彈性
+        //if (Session["Cart"] == null)
+        //{
+        //    Cart = new List<CartItem>(); //建立全新的集合
+        //}
+        //else
+        //{
+        //    Cart = (List<CartItem>)Session["Cart"];
+
+        //}
+        //////購物車中已有的產品?
+        //for (int i=0; i < Cart.Count; i++)
+        //{
+        //    if (Cart[i].Title_Id == item.Title_Id)
+        //    {
+        //        Cart[i].Quanty = caritem[i].Quanty + 1; //已存在數量加1
+        //        exists = true;
+        //    }
+        //}
+        //if (!exists) //新的產品
+        //{
+        //    Cart.Add(item); //加入購物車
+        //}
+        //////更新購物車(session變數紀錄)
+        //Session["Cart"] = Cart;
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <form id="form1" runat="server">
         <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-        <asp:Button ID="Button1" runat="server" Height="51px" OnClick="Button1_Click" Text="我的愛" Width="192px" />
+        <asp:Button ID="Button1" runat="server" Height="51px" OnClick="Button1_Click" Text="我的最愛" Width="192px" />
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="編號,Expr1" DataSourceID="SqlDataSource2">
             <EditItemTemplate>
                 科系:
@@ -83,6 +131,8 @@
                 <br />
                 Expr1:
                 <asp:Label ID="Expr1Label" runat="server" Text='<%# Eval("Expr1") %>' />
+                <br />
+                <asp:Image ID="Image1" runat="server" Height="139px" ImageUrl='<%# Eval("科系", "images/{0}.jpg") %>' Width="161px" />
                 <br />
 
             </ItemTemplate>

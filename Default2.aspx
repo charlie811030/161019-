@@ -2,11 +2,18 @@
 
 <script runat="server">
 
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+ 
+  
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <form id="form1" runat="server">
-        <asp:DataList ID="DataList1" runat="server" DataKeyField="科系" DataSourceID="SqlDataSource1" RepeatColumns="5">
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="科系" DataSourceID="SqlDataSource1" RepeatColumns="5" style="margin-right: 0px">
             <ItemTemplate>
                 科系:
                 <asp:Label ID="科系Label" runat="server" Text='<%# Eval("科系") %>' />
@@ -21,6 +28,7 @@
                 系所人數:
                 <asp:Label ID="系所人數Label" runat="server" Text='<%# Eval("系所人數") %>' />
                 <br />
+                <br />
                 <asp:Image ID="Image1" runat="server" Height="138px" ImageUrl='<%# Eval("科系", "images/{0}.jpg") %>' Width="148px" />
 <br />
                 <br />
@@ -30,6 +38,7 @@
             <ItemTemplate>
                 科系:
                 <asp:Label ID="科系Label" runat="server" Text='<%# Eval("科系") %>' />
+                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
                 <asp:Label ID="學院Label" runat="server" Text='<%# Eval("學院") %>' />
@@ -49,6 +58,7 @@
             <ItemTemplate>
                 科系:
                 <asp:Label ID="科系Label" runat="server" Text='<%# Eval("科系") %>' />
+                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
                 <asp:Label ID="學院Label" runat="server" Text='<%# Eval("學院") %>' />
@@ -69,6 +79,7 @@
             <ItemTemplate>
                 科系:
                 <asp:Label ID="科系Label" runat="server" Text='<%# Eval("科系") %>' />
+                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
                 <asp:Label ID="學院Label" runat="server" Text='<%# Eval("學院") %>' />
