@@ -17,38 +17,39 @@
         FormView1.DataBind();
         object product = FormView1.DataItem;
         item.Title_Id = DataBinder.Eval(product, "編號").ToString();
-        item. Calendar = DataBinder.Eval(product, "科系").ToString();
-        item.price = (decimal)DataBinder.Eval(product, "系月曆單筆價格");
+        item.Calendar = DataBinder.Eval(product, "科系").ToString();
+        item.price = Convert.ToDecimal(DataBinder.Eval(product, "系月曆單筆價格"));
         item.Quanty = 1;
         Response.Write(item.SubTotal);
-        bool exists = false;
+
         //取得現有購物車內容(session變數紀錄)
-        List<caritem> Cart;  // 用list比較彈性
+        List<caritem> Car;  // 用list比較彈性
         if (Session["Cart"] == null)
         {
-            Cart = new List<caritem>(); //建立全新的集合
+            Car = new List<caritem>(); //建立全新的集合
         }
         else
         {
-            Cart = (List<caritem>)Session["Cart"];
+            Car = (List<caritem>)Session["Cart"];
 
         }
         //購物車中已有的產品 ?
-        for (int i = 0; i < Cart.Count; i++)
+        bool exists = false;
+        for (int i = 0; i < Car.Count; i++)
         {
-            if (Cart[i].Title_Id == item.Title_Id)
+            if (Car[i].Title_Id == item.Title_Id)
             {
-                Cart[i].Quanty = Cart[i].Quanty + 1; //已存在數量加1
+                Car[i].Quanty = Car[i].Quanty + 1; //已存在數量加1
                 exists = true;
             }
         }
         if (!exists) //新的產品
         {
-            Cart.Add(item); //加入購物車
+            Car.Add(item); //加入購物車
         }
         //更新購物車(session變數紀錄)
-        Session["Cart"] = Cart;
-           Response.Redirect("Car.aspx");
+        Session["Cart"] = Car;
+        Response.Redirect("Car.aspx");
 
     }
 
@@ -58,7 +59,7 @@
     }
 </script>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <form id="form1" runat="server">
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="編號" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging">
             <EditItemTemplate>
