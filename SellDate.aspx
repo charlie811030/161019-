@@ -12,7 +12,6 @@
                 <asp:Label ID="編號Label" runat="server" Text='<%# Eval("編號") %>' />
                 <br />
                 科系:
-                <asp:Label ID="科系Label" runat="server" Text='<%# Eval("科系") %>' />
                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("編號", "buyselldate.aspx?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 系月曆單筆價格:

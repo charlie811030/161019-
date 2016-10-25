@@ -16,7 +16,6 @@
         <asp:DataList ID="DataList1" runat="server" DataKeyField="科系" DataSourceID="SqlDataSource1" RepeatColumns="5" style="margin-right: 0px">
             <ItemTemplate>
                 科系:
-                <asp:Label ID="科系Label" runat="server" Text='<%# Eval("科系") %>' />
                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
@@ -37,7 +36,6 @@
         <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource3" RepeatColumns="5">
             <ItemTemplate>
                 科系:
-                <asp:Label ID="科系Label" runat="server" Text='<%# Eval("科系") %>' />
                 <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
@@ -57,7 +55,6 @@
         <asp:DataList ID="DataList4" runat="server" DataSourceID="SqlDataSource4" RepeatColumns="5">
             <ItemTemplate>
                 科系:
-                <asp:Label ID="科系Label" runat="server" Text='<%# Eval("科系") %>' />
                 <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
@@ -78,7 +75,6 @@
         <asp:DataList ID="DataList2" runat="server" DataKeyField="科系" DataSourceID="SqlDataSource2" RepeatColumns="5">
             <ItemTemplate>
                 科系:
-                <asp:Label ID="科系Label" runat="server" Text='<%# Eval("科系") %>' />
                 <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:

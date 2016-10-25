@@ -61,7 +61,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    <form id="form1" runat="server">
+  
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" TabIndex="5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="GridView1_SelectedIndexChanged" DataKeyNames="科系">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -159,7 +159,7 @@
                 <asp:Parameter Name="編號" Type="String" />
             </UpdateParameters>
         </asp:SqlDataSource>
-    </form>
+    
 
 </asp:Content>
 

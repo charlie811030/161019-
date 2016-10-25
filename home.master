@@ -5,6 +5,34 @@
 <script runat="server">
 
 
+
+   
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Session.Clear();
+        Session.Abandon();
+        Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+        Response.Cache.SetNoStore();
+
+        try
+        {
+            Session.Abandon();
+            FormsAuthentication.SignOut();
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Buffer = true;
+            Response.ExpiresAbsolute = DateTime.Now.AddDays(-1d);
+            Response.Expires = -3000;
+            Response.CacheControl = "no-cache";
+            //Response.Redirect("login.aspx", true);
+        }
+        catch (Exception ex)
+        {
+            Response.Write(ex.Message);
+        }
+        Response.Redirect("~/Login.aspx");
+    }
 </script>
 
 
@@ -22,12 +50,36 @@
 
 
 
-                <li><a href="about.html"><span>關於我</span></a></li>
+                <li><a href="aboutme.aspx"><span>關於我</span></a></li>
 
                 <li><a href="Car.aspx"><span><%=HttpContext.Current.User.Identity.Name %>購物車</span></a></li>
                 <li><a href="SellDate.aspx"><span>買月曆</span></a></li>
                 <li><a href="Newname.aspx"><span>註冊新會員</span></a></li>
-                <a href="MyLike.ashx">我的最愛</a>
+                <li><a href="MyLike.ashx"><span>我的最愛</span></a></li>
+                <br />
+                <li><a href="/backyard/info.aspx"><span>管理員介面</span></a></li>
+               
+
+
+
+
+                
+               
+
+
+
+
+                <li>
+                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="登出" />
+                    <br />
+                </li>
+               
+
+
+
+
+                
+               
 
 
 

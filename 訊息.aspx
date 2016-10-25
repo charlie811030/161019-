@@ -129,8 +129,6 @@
                 系所人數:
                 <asp:Label ID="系所人數Label" runat="server" Text='<%# Bind("系所人數") %>' />
                 <br />
-                Expr1:
-                <asp:Label ID="Expr1Label" runat="server" Text='<%# Eval("Expr1") %>' />
                 <br />
                 <asp:Image ID="Image1" runat="server" Height="139px" ImageUrl='<%# Eval("科系", "images/{0}.jpg") %>' Width="161px" />
                 <br />
