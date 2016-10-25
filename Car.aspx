@@ -81,7 +81,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <form id="form1" runat="server">
+  
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" DataKeyNames="Title_Id" OnRowDataBound="GridView1_RowDataBound" ShowFooter="True" >
             <Columns>
                 <asp:BoundField HeaderText="編號" DataField="Title_Id" />
@@ -93,6 +93,6 @@
             </Columns>
         </asp:GridView>
         <asp:Label ID="Labe1" runat="server" Text="限量要買要快!"></asp:Label>
-    </form>
+
 </asp:Content>
 

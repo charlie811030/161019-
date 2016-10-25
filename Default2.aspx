@@ -12,7 +12,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <form id="form1" runat="server">
+   
         <asp:DataList ID="DataList1" runat="server" DataKeyField="科系" DataSourceID="SqlDataSource1" RepeatColumns="5" style="margin-right: 0px">
             <ItemTemplate>
                 科系:
@@ -97,6 +97,6 @@
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [科系所1]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [科系所]"></asp:SqlDataSource>
-    </form>
+   
 </asp:Content>
 

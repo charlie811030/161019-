@@ -10,7 +10,8 @@
             <PropertyRef Name="UserName" />
           </Key>
           <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="PassWord" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HashPassWord" Type="char" MaxLength="60" Nullable="false" />
+          <Property Name="phonenumber" Type="int" />
         </EntityType>
         <EntityContainer Name="系所月曆ModelsStoreContainer">
           <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
@@ -27,7 +28,8 @@
             <PropertyRef Name="UserName" />
           </Key>
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HashPassWord" Type="String" Nullable="false" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="phonenumber" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -38,7 +40,8 @@
           <EntitySetMapping Name="Members">
             <EntityTypeMapping TypeName="系所月曆Models.Member">
               <MappingFragment StoreEntitySet="Members">
-                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="HashPassWord" ColumnName="HashPassWord" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
               </MappingFragment>
             </EntityTypeMapping>

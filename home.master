@@ -4,6 +4,7 @@
 
 <script runat="server">
 
+
 </script>
 
 
@@ -13,30 +14,37 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
-    <div id="header">
-        <ul>
-            <li class="current"><a href="Default2.aspx"><span>校園名人堂</span></a></li>
-            <li><a href="MyLike.ashx"><span>Services</span></a></li>
+    <form id="form1" runat="server">
+        <div id="header">
+            <ul>
+                <li class="current"><a href="Default2.aspx"><span>校園名人堂</span></a></li>
+                <li><a href="MyLike.ashx"><span>Services</span></a></li>
 
 
 
-            <li><a href="about.html"><span>關於我</span></a></li>
+                <li><a href="about.html"><span>關於我</span></a></li>
 
-            <li><a href="Car.aspx"><span>購物車</span></a></li>
-             <li><a href="SellDate.aspx"><span>買月曆</span></a></li>
-                  <li><a href="Newname.aspx"><span>註冊新會員</span></a></li>
-            <a href="MyLike.ashx">我的最愛</a>
+                <li><a href="Car.aspx"><span><%=HttpContext.Current.User.Identity.Name %>購物車</span></a></li>
+                <li><a href="SellDate.aspx"><span>買月曆</span></a></li>
+                <li><a href="Newname.aspx"><span>註冊新會員</span></a></li>
+                <a href="MyLike.ashx">我的最愛</a>
 
-        </ul>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
 
-            </asp:ContentPlaceHolder>
-        </div>
-<%--      <img src="images/yoga-girl.gif" alt="" />--%>
+
+
+            </ul>
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                </asp:ContentPlaceHolder>
             </div>
+            <%--      <img src="images/yoga-girl.gif" alt="" />--%>
+        </div>
+
+
+    </form>
             	
-       
+             
  </body>
 
           

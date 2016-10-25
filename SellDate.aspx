@@ -5,7 +5,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <form id="form1" runat="server">
+
         <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource3" RepeatColumns="5">
             <ItemTemplate>
                 編號:
@@ -23,6 +23,6 @@
             </ItemTemplate>
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [系月曆單筆價格]"></asp:SqlDataSource>
-    </form>
+  
 </asp:Content>
 

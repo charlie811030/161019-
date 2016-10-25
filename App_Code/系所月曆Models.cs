@@ -13,5 +13,6 @@ using System.Collections.Generic;
 public partial class Member
 {
     public string UserName { get; set; }
-    public string PassWord { get; set; }
+    public string HashPassWord { get; set; }
+    public Nullable<int> phonenumber { get; set; }
 }

@@ -65,7 +65,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <form id="form1" runat="server">
+
         <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
         <asp:Button ID="Button1" runat="server" Height="51px" OnClick="Button1_Click" Text="我的最愛" Width="192px" />
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="編號,Expr1" DataSourceID="SqlDataSource2">
@@ -142,6 +142,6 @@
                 <asp:QueryStringParameter Name="id" QueryStringField="qid" />
             </SelectParameters>
         </asp:SqlDataSource>
-    </form>
+
 </asp:Content>
 

@@ -60,7 +60,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <form id="form1" runat="server">
+   
         <asp:FormView ID="FormView1" runat="server" DataKeyNames="編號" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging">
             <EditItemTemplate>
                 編號:
@@ -110,6 +110,6 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:Button ID="Button1" runat="server" Height="46px" OnClick="Button1_Click" Text="加入月曆購物車" Width="165px" />
-    </form>
+  
 </asp:Content>
 
