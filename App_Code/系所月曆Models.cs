@@ -34,7 +34,7 @@ public partial class Order
         this.Order_Details = new HashSet<Order_Details>();
     }
 
-    public string Id { get; set; }
+    public int Id { get; set; }
     public string Username { get; set; }
     public System.DateTime CreateDate { get; set; }
     public string OrderAddr { get; set; }
@@ -49,7 +49,7 @@ public partial class Order
 
 public partial class Order_Details
 {
-    public string OrderId { get; set; }
+    public int OrderId { get; set; }
     public string Title_Id { get; set; }
     public int Qty { get; set; }
 

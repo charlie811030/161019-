@@ -5,11 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b5ad2cc944b14e7fa40604ba3a018b1b" Name="Diagram1">
-        <EntityTypeShape EntityType="系所月曆Models.Member" Width="1.5" PointX="0.75" PointY="1.5" />
-        <EntityTypeShape EntityType="系所月曆Models.Order_Details" Width="1.5" PointX="5.25" PointY="1.375" />
-        <EntityTypeShape EntityType="系所月曆Models.Order" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="系所月曆Models.Member" Width="1.5" PointX="4.75" PointY="1.375" />
+        <EntityTypeShape EntityType="系所月曆Models.Order" Width="1.5" PointX="2.375" PointY="1" />
         <AssociationConnector Association="系所月曆Models.FK_Orders_Members" />
+        <EntityTypeShape EntityType="系所月曆Models.Order_Details" Width="1.5" PointX="0.5" PointY="1.5" />
         <AssociationConnector Association="系所月曆Models.FK_Order_Details_Orders" />
+      </Diagram>
+      <Diagram DiagramId="45c9db6427434a92951442b8f8935892" Name="Diagram2" >
+        <EntityTypeShape EntityType="系所月曆Models.Order_Details" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="系所月曆Models.Order" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="系所月曆Models.sysdiagram" Width="1.5" PointX="4.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

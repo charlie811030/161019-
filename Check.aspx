@@ -2,6 +2,7 @@
 
 <script runat="server">
 
+
     protected void Wizard1_NextButtonClick(object sender, WizardNavigationEventArgs e) {
         //if (e.CurrentStepIndex==0) {
         if (Wizard1.WizardSteps[e.CurrentStepIndex].Title=="訂購資訊") {
@@ -23,27 +24,55 @@
             lblShipName.Text = txtShipName.Text;
             lblShipAddr.Text = txtShipAddr.Text;
             lblShipPhone.Text = txtShipPhone.Text;
+
+            DisplayCart();
         }
+    }
+
+    void DisplayCart()
+    {
+        List<caritem> cart;
+        cart = (List<caritem>)Session["Cart"];
+        GridView1.DataSource = cart;
+        GridView1.DataBind();
     }
 
     protected void Wizard1_FinishButtonClick(object sender, WizardNavigationEventArgs e) {
         //建立Order物件
-        Order order = new Order();
-        //order.Username = txtOrderName.Text;
-        //order.OrderAddr = txtOrderAddr.Text;
-        //order.OrderPhone = txtOrderPhone.Text;
-        //order.ShipAddr = txtShipAddr.Text;
-        //order.ShipPhone = txtShipPhone.Text;
-        //order.CreateDate = DateTime.Now;
+        Order orders = new Order();
+        orders.Username = HttpContext.Current.User.Identity.Name;
+        orders.OrderAddr = txtOrderAddr.Text;
+        orders.OrderPhone = txtOrderPhone.Text;
+        orders.ShipAddr = txtShipAddr.Text;
+        orders.ShipPhone = txtShipPhone.Text;
+        orders.CreateDate = DateTime.Now;
+
+        List<caritem> cart;
+        cart = (List<caritem>)Session["Cart"];
+        Order_Details detail;
+        for (int i =0; i < cart.Count; i++)
+        {
+            detail = new Order_Details();
+            detail.Title_Id = cart[i].Title_Id;
+            detail.Qty = cart[i].Quanty;
+            orders.Order_Details.Add(detail);
+        }
+
 
         //寫入資料庫
         系所月曆Entities db = new 系所月曆Entities();
-        db.Orders.Add(order);
+        db.Orders.Add(orders);
         db.SaveChanges();
 
         //顯示訂單編號及建立時間
-        lblOrderNo.Text = order.Id.ToString();
-        lblOrderCreateTime.Text = order.CreateDate.ToString();
+        lblOrderNo.Text = orders.Id.ToString();
+        lblOrderCreateTime.Text = orders.CreateDate.ToString();
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        txtOrderName.Text = HttpContext.Current.User.Identity.Name;
+        txtOrderName.ReadOnly = true;
     }
 </script>
 
