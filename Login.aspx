@@ -12,10 +12,10 @@
 
 
             e.Authenticated = true;
-            //if(User.Identity.Name=="charliewu")
-            //{
-            //    Response.Redirect("~/backyard/Default.aspx");
-            //}
+            if (User.Identity.Name == "charliewu")
+            {
+                Response.Redirect("~/backyard/info.aspx");
+            }
 
 
 
@@ -31,7 +31,7 @@
         <div>
          <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate"
       
-         DestinationPageUrl="Default2.aspx" Height="426px" Width="295px">
+         DestinationPageUrl="Default2.aspx" Height="426px" Width="295px" style="text-align: center">
         </asp:Login>
             </div>
         <div>

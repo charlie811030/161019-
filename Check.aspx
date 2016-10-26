@@ -9,7 +9,7 @@
             if (chkTheSameAsShipper.Checked) { //同收貨人
 
                 txtShipAddr.Text = txtOrderAddr.Text;
-                txtShipName.Text = txtOrderName.Text;
+                txtShipName.Text = Label1.Text;
                 txtShipPhone.Text = txtOrderPhone.Text;
 
                 Wizard1.MoveTo(wStepFinish); //跳到[確認]
@@ -18,7 +18,7 @@
     }
     protected void Wizard1_ActiveStepChanged(object sender, EventArgs e) {
         if (Wizard1.ActiveStep.Title=="確認") { //把輸入的資料顯示在Label上
-            lblOrderName.Text = txtOrderName.Text;
+            lblOrderName.Text = Label1.Text;
             lblOrderAddr.Text = txtOrderAddr.Text;
             lblOrderPhone.Text = txtOrderPhone.Text;
             lblShipName.Text = txtShipName.Text;
@@ -71,8 +71,13 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        txtOrderName.Text = HttpContext.Current.User.Identity.Name;
-        txtOrderName.ReadOnly = true;
+        Label1.Text = HttpContext.Current.User.Identity.Name;
+        //Label1.ReadOnly = true;
+    }
+
+    protected void txtOrderName_TextChanged(object sender, EventArgs e)
+    {
+
     }
 </script>
 
@@ -82,7 +87,7 @@
     <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" CellPadding="10" OnNextButtonClick="Wizard1_NextButtonClick" OnActiveStepChanged="Wizard1_ActiveStepChanged" OnFinishButtonClick="Wizard1_FinishButtonClick">
         <WizardSteps>
             <asp:WizardStep runat="server" title="訂購資訊">
-                訂購姓名:<asp:TextBox ID="txtOrderName" runat="server"></asp:TextBox>
+                訂購姓名:<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 <br />
                 訂購地址:<asp:TextBox ID="txtOrderAddr" runat="server"></asp:TextBox>
                 <br />
@@ -91,11 +96,11 @@
                 <asp:CheckBox ID="chkTheSameAsShipper" runat="server" Text="同收貨人" />
             </asp:WizardStep>
             <asp:WizardStep runat="server" title="收貨資訊">
-                出貨姓名:<asp:TextBox ID="txtShipName" runat="server"></asp:TextBox>
+                收貨姓名:<asp:TextBox ID="txtShipName" runat="server"></asp:TextBox>
                 <br />
-                出貨地址:<asp:TextBox ID="txtShipAddr" runat="server"></asp:TextBox>
+                收貨地址:<asp:TextBox ID="txtShipAddr" runat="server"></asp:TextBox>
                 <br />
-                出貨電話:<asp:TextBox ID="txtShipPhone" runat="server"></asp:TextBox>
+                收貨電話:<asp:TextBox ID="txtShipPhone" runat="server"></asp:TextBox>
             </asp:WizardStep>
             <asp:WizardStep runat="server" StepType="Finish" Title="確認" ID="wStepFinish">
                 訂購姓名:<asp:Label ID="lblOrderName" runat="server"></asp:Label>

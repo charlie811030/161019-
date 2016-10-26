@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/home.master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/backyard/home.master" %>
 
 <script runat="server">
-
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+      protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
         FormView1.Visible = true;
 
@@ -60,9 +59,7 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
-  
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" TabIndex="5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="GridView1_SelectedIndexChanged" DataKeyNames="編號" AllowSorting="True">
+     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource3" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" TabIndex="5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowCommand="GridView1_SelectedIndexChanged" DataKeyNames="編號" AllowSorting="True">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="編號" HeaderText="編號" SortExpression="編號" />
@@ -176,6 +173,5 @@
             </UpdateParameters>
         </asp:SqlDataSource>
     
-
 </asp:Content>
 
