@@ -24,4 +24,6 @@ public partial class 系所月曆Entities : DbContext
     }
 
     public virtual DbSet<Member> Members { get; set; }
+    public virtual DbSet<Order_Details> Order_Details { get; set; }
+    public virtual DbSet<Order> Orders { get; set; }
 }

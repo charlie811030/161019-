@@ -58,32 +58,13 @@
                 <li><a href="MyLike.ashx"><span>我的最愛</span></a></li>
                 <br />
                 <li><a href="/backyard/info.aspx"><span>管理員介面</span></a></li>
-               
-
-
-
-
-                
-               
-
-
-
-
+                 <li><a href="search.aspx"><span>搜尋系所月曆價格</span></a></li>
+       
                 <li>
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="登出" />
                     <br />
                 </li>
-               
-
-
-
-
-                
-               
-
-
-
-
+       
             </ul>
             <div>
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

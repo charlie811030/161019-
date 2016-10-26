@@ -53,7 +53,23 @@
                 }
             }
             displaycar();
+
         }
+    }
+    void DisplayCar()
+    {
+        if (Session["Car"] == null)
+        {
+            Labe1.Text = "購物車中尚未有產品";
+        }
+        else
+        {
+            List<caritem> car;
+            car = (List<caritem>)Session["Car"];
+            GridView1.DataSource = car;
+            GridView1.DataBind();
+        }
+
     }
     decimal total = 0;
     protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -78,6 +94,11 @@
             e.Row.Cells[4].Text = total.ToString();
         }
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -93,6 +114,8 @@
             </Columns>
         </asp:GridView>
         <asp:Label ID="Labe1" runat="server" Text="限量要買要快!"></asp:Label>
+
+        <asp:Button ID="Button2" runat="server" PostBackUrl="~/Check.aspx" Text="結帳" Height="21px" OnClick="Button2_Click" />
 
 </asp:Content>
 
