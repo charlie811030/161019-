@@ -38,6 +38,11 @@
     {
 
     }
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("https://zh-tw.facebook.com/beautyinmcu/" );
+    }
 </script>
 
 
@@ -47,11 +52,15 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
+
     <form id="form1" runat="server">
         <div id="header">
+     <div>
+         <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/facebook.jpg" ImageAlign="Left" OnClick="ImageButton1_Click" />
+     </div>      
             <ul>
                 <li class="current"><a href="Default2.aspx"><span>校園名人堂</span></a></li>
-                <li class="current"><a href="https://www.facebook.com/beautyinmcu/" target="_blank" ><img src="/images/facebook.jpg" /></a></li>
+                
               
 
 
