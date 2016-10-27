@@ -9,7 +9,7 @@
 
     }
 
-    
+
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -57,6 +57,11 @@
         FormView1.Visible = true;
         FormView1.ChangeMode(FormViewMode.Insert);
     }
+
+    protected void SqlDataSource3_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -82,7 +87,7 @@
             <SortedDescendingCellStyle BackColor="#FCF6C0" />
             <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [系所活動資訊1]" DeleteCommand="DELETE FROM [系所活動資訊1] WHERE [編號] = @編號" InsertCommand="INSERT INTO [系所活動資訊1] ([編號], [科系], [活動名稱], [日期]) VALUES (@編號, @科系, @活動名稱, @日期)" UpdateCommand="UPDATE [系所活動資訊1] SET [科系] = @科系, [活動名稱] = @活動名稱, [日期] = @日期 WHERE [編號] = @編號">
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [系所活動資訊1]" DeleteCommand="DELETE FROM [系所活動資訊1] WHERE [編號] = @編號" InsertCommand="INSERT INTO [系所活動資訊1] ([編號], [科系], [活動名稱], [日期]) VALUES (@編號, @科系, @活動名稱, @日期)" UpdateCommand="UPDATE [系所活動資訊1] SET [科系] = @科系, [活動名稱] = @活動名稱, [日期] = @日期 WHERE [編號] = @編號" OnSelecting="SqlDataSource3_Selecting">
             <DeleteParameters>
                 <asp:Parameter Name="編號" Type="String" />
             </DeleteParameters>

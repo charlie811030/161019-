@@ -7,16 +7,21 @@
 
     }
 
- 
-  
+
+
+    protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-   
-        <asp:DataList ID="DataList1" runat="server" DataKeyField="科系" DataSourceID="SqlDataSource1" RepeatColumns="5" style="margin-right: 0px">
+    <div style="margin-top: 60px;">
+   </div>
+        <asp:DataList ID="DataList1" runat="server" DataKeyField="科系" DataSourceID="SqlDataSource1" RepeatColumns="5" style=" text-align: left;" HorizontalAlign="Center" BorderStyle="None" OnSelectedIndexChanged="DataList1_SelectedIndexChanged">
             <ItemTemplate>
                 科系:
-                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
+                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
                 <asp:Label ID="學院Label" runat="server" Text='<%# Eval("學院") %>' />
@@ -28,15 +33,19 @@
                 <asp:Label ID="系所人數Label" runat="server" Text='<%# Eval("系所人數") %>' />
                 <br />
                 <br />
-                <asp:Image ID="Image1" runat="server" Height="138px" ImageUrl='<%# Eval("科系", "images/{0}.jpg") %>' Width="148px" />
+                <asp:Image ID="Image1" runat="server" Height="162px" ImageUrl='<%# Eval("科系", "images/{0}.jpg") %>' Width="148px" />
 <br />
                 <br />
             </ItemTemplate>
         </asp:DataList>
-        <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource3" RepeatColumns="5">
+    
+     
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [科系所]"></asp:SqlDataSource>
+
+        <asp:DataList ID="DataList3" runat="server" DataSourceID="SqlDataSource3" RepeatColumns="5" HorizontalAlign="Center">
             <ItemTemplate>
                 科系:
-                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
+                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
                 <asp:Label ID="學院Label" runat="server" Text='<%# Eval("學院") %>' />
@@ -52,10 +61,10 @@
             </ItemTemplate>
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [科系所2]"></asp:SqlDataSource>
-        <asp:DataList ID="DataList4" runat="server" DataSourceID="SqlDataSource4" RepeatColumns="5">
+        <asp:DataList ID="DataList4" runat="server" DataSourceID="SqlDataSource4" RepeatColumns="5" HorizontalAlign="Center">
             <ItemTemplate>
                 科系:
-                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
+                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
                 <asp:Label ID="學院Label" runat="server" Text='<%# Eval("學院") %>' />
@@ -72,10 +81,10 @@
             </ItemTemplate>
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [科系所3]"></asp:SqlDataSource>
-        <asp:DataList ID="DataList2" runat="server" DataKeyField="科系" DataSourceID="SqlDataSource2" RepeatColumns="5">
+        <asp:DataList ID="DataList2" runat="server" DataKeyField="科系" DataSourceID="SqlDataSource2" RepeatColumns="5" HorizontalAlign="Center">
             <ItemTemplate>
                 科系:
-                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx/?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
+                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl='<%# Eval("編號", "訊息.aspx?qid={0}") %>' Text='<%# Eval("科系") %>'></asp:HyperLink>
                 <br />
                 學院:
                 <asp:Label ID="學院Label" runat="server" Text='<%# Eval("學院") %>' />
@@ -92,7 +101,6 @@
             </ItemTemplate>
         </asp:DataList>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [科系所1]"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" SelectCommand="SELECT * FROM [科系所]"></asp:SqlDataSource>
-   
+           
 </asp:Content>
 

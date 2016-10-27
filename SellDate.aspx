@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource3" RepeatColumns="5">
+        <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource3" RepeatColumns="5" HorizontalAlign="Center">
             <ItemTemplate>
                 編號:
                 <asp:Label ID="編號Label" runat="server" Text='<%# Eval("編號") %>' />

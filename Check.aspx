@@ -82,9 +82,10 @@
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:GridView ID="GridView1" runat="server">
+    <br />
+    <asp:GridView ID="GridView1" runat="server" HorizontalAlign="Center">
     </asp:GridView>
-    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" CellPadding="10" OnNextButtonClick="Wizard1_NextButtonClick" OnActiveStepChanged="Wizard1_ActiveStepChanged" OnFinishButtonClick="Wizard1_FinishButtonClick">
+    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="0" CellPadding="20" OnNextButtonClick="Wizard1_NextButtonClick" OnActiveStepChanged="Wizard1_ActiveStepChanged" OnFinishButtonClick="Wizard1_FinishButtonClick" Height="189px" Width="463px">
         <WizardSteps>
             <asp:WizardStep runat="server" title="訂購資訊">
                 訂購姓名:<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>

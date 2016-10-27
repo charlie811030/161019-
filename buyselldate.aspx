@@ -57,11 +57,22 @@
     {
 
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("sellDate.aspx");
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <style>
+        .center {
+            text-align:center;
+            margin:0px auto;
+        }
+    </style>
    
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="編號" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging">
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="編號" DataSourceID="SqlDataSource1" OnPageIndexChanging="FormView1_PageIndexChanging" HorizontalAlign="Center">
             <EditItemTemplate>
                 編號:
                 <asp:Label ID="編號Label1" runat="server" Text='<%# Eval("編號") %>' />
@@ -109,7 +120,9 @@
                 <asp:QueryStringParameter Name="tid" QueryStringField="qid" />
             </SelectParameters>
         </asp:SqlDataSource>
+      <p class="center">
         <asp:Button ID="Button1" runat="server" Height="46px" OnClick="Button1_Click" Text="加入月曆購物車" Width="165px" />
-  
+         <asp:Button ID="Button2" runat="server" Height="46px" OnClick="Button2_Click" Text="繼續購買月曆" Width="165px" />
+
 </asp:Content>
 

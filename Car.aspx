@@ -96,14 +96,16 @@
     }
 
     protected void Button2_Click(object sender, EventArgs e)
-    {
-
+    
+          {
+        Response.Redirect("sellDate.aspx");
     }
+    
 </script>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" DataKeyNames="Title_Id" OnRowDataBound="GridView1_RowDataBound" ShowFooter="True" >
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div style="margin-top: 60px;">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" DataKeyNames="Title_Id" OnRowDataBound="GridView1_RowDataBound" ShowFooter="True" BorderStyle="Dotted" HorizontalAlign="Center">
             <Columns>
                 <asp:BoundField HeaderText="編號" DataField="Title_Id" />
                 <asp:HyperLinkField DataNavigateUrlFields="Title_Id" DataNavigateUrlFormatString="buyselldate.aspx?qid={0}" DataTextField="Calendar" HeaderText="產品名稱" />
@@ -113,9 +115,26 @@
                 <asp:CommandField ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
-        <asp:Label ID="Labe1" runat="server" Text="限量要買要快!"></asp:Label>
 
-        <asp:Button ID="Button2" runat="server" PostBackUrl="~/Check.aspx" Text="結帳" Height="21px" OnClick="Button2_Click" />
+    </div>
+    <div style="margin-top: 30px;">
 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <asp:Label ID="Labe1" runat="server" Text="限量要買要快!" Style="text-align: center"></asp:Label>
+
+    &nbsp;&nbsp;
+          <style>
+        .center {
+            text-align:center;
+            margin:0px auto;
+        }
+    </style>
+   
+
+            <p class="center">
+        <asp:Button ID="Button2" runat="server" PostBackUrl="~/Check.aspx" Text="結帳" Height="50px" OnClick="Button2_Click" BorderStyle="Double" BorderWidth="10px" />
+        <asp:Button ID="Button1" runat="server" Height="46px" OnClick="Button2_Click" Text="繼續購買月曆" Width="165px" />
+    </div>
 </asp:Content>
 
