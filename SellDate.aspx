@@ -17,7 +17,8 @@
                 系月曆單筆價格:
                 <asp:Label ID="系月曆單筆價格Label" runat="server" Text='<%# Eval("系月曆單筆價格") %>' />
                 <br />
-                <asp:Image ID="Image1" runat="server" Height="202px" ImageUrl='<%# Eval("編號", "images/月曆/{0}.jpg") %>' Width="166px" />
+                <br />
+                <asp:HyperLink ID="HyperLink2" runat="server" ImageUrl='<%# Eval("編號", "images/月曆/{0}.jpg") %>' NavigateUrl='<%# Eval("編號", "buyselldate.aspx?qid={0}") %>' ImageHeight="202" ImageWidth="166"></asp:HyperLink>
 <br />
             </ItemTemplate>
         </asp:DataList>
