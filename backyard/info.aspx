@@ -62,6 +62,16 @@
     {
 
     }
+
+    protected void dsform_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    {
+
+    }
+
+    protected void FormView1_PageIndexChanging(object sender, FormViewPageEventArgs e)
+    {
+
+    }
 </script>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -106,7 +116,7 @@
         </asp:SqlDataSource>
         <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
         <asp:Button ID="Button1" runat="server" Text="新增" OnClick="Button1_Click1" />
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="編號" DataSourceID="dsform" DefaultMode="Edit" OnItemCommand="FormView1_ItemCommand" OnItemInserted="FormView1_ItemInserted">
+        <asp:FormView ID="FormView1" runat="server" DataKeyNames="編號" DataSourceID="dsform" DefaultMode="Edit" OnItemCommand="FormView1_ItemCommand" OnItemInserted="FormView1_ItemInserted" OnPageIndexChanging="FormView1_PageIndexChanging">
             <EditItemTemplate>
                 編號:
                 <asp:Label ID="編號Label1" runat="server" Text='<%# Eval("編號") %>' />
@@ -160,7 +170,7 @@
                 &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="新增" />
             </ItemTemplate>
         </asp:FormView>
-        <asp:SqlDataSource ID="dsform" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" DeleteCommand="DELETE FROM [系所活動資訊1] WHERE [編號] = @編號" InsertCommand="INSERT INTO [系所活動資訊1] ([編號], [科系], [活動名稱], [日期]) VALUES (@編號, @科系, @活動名稱, @日期)" SelectCommand="SELECT * FROM [系所活動資訊1] WHERE ([科系] = @科系)" UpdateCommand="UPDATE [系所活動資訊1] SET [科系] = @科系, [活動名稱] = @活動名稱, [日期] = @日期 WHERE [編號] = @編號" OnUpdated="dsform_Updated">
+        <asp:SqlDataSource ID="dsform" runat="server" ConnectionString="<%$ ConnectionStrings:系所月曆ConnectionString %>" DeleteCommand="DELETE FROM [系所活動資訊1] WHERE [編號] = @編號" InsertCommand="INSERT INTO [系所活動資訊1] ([編號], [科系], [活動名稱], [日期]) VALUES (@編號, @科系, @活動名稱, @日期)" SelectCommand="SELECT * FROM [系所活動資訊1] WHERE ([科系] = @科系)" UpdateCommand="UPDATE [系所活動資訊1] SET [科系] = @科系, [活動名稱] = @活動名稱, [日期] = @日期 WHERE [編號] = @編號" OnUpdated="dsform_Updated" OnSelecting="dsform_Selecting">
             <DeleteParameters>
                 <asp:Parameter Name="編號" Type="String" />
             </DeleteParameters>

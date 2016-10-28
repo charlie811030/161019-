@@ -42,7 +42,8 @@
     <div id="header">
         <ul>
             <li class="current"><a href="/Default2.aspx"><span>校園名人堂</span></a></li>
-            <li><a href="/backyard/money.aspx"><span>訂單</span></a></li>
+             <li><a href="/backyard/money1.aspx"><span>訂單編號</span></a></li>
+            <li><a href="/backyard/money.aspx"><span>訂單明細</span></a></li>
 
 
 
